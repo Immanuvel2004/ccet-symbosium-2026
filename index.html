@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CCET Symposium 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <img src="logo.png" class="logo">
+                <h1>Christ College of Engineering and Technology</h1>
+                <p>Symposium Registration 2026</p>
+            </div>
+
+            <form id="regForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="tel" id="phone" placeholder="Phone (10 digits)" maxlength="10" required>
+                <input type="email" id="email" placeholder="Email (@gmail.com)" required>
+                <input type="text" id="college" placeholder="College Name" required>
+                <input type="text" id="dept" placeholder="Department" required>
+
+                <div class="row">
+                    <select id="year" required><option value="">Year</option><option>1st</option><option>2nd</option><option>3rd</option><option>4th</option></select>
+                    <select id="food" required><option value="">Food</option><option>Veg</option><option>Non-Veg</option></select>
+                </div>
+
+                <h3>Technical (Max 2, Min 1)</h3>
+                <label><input type="checkbox" class="tech" value="Paper Presentation"> Paper Presentation <button type="button" onclick="showPoster('event_t_1.png')">Details</button></label>
+                <label><input type="checkbox" class="tech" value="Code O Logix"> Code O' Logix <button type="button" onclick="showPoster('event_t_2.png')">Details</button></label>
+                <label><input type="checkbox" class="tech" value="Design Slayer"> Design Slayer <button type="button" onclick="showPoster('event_t_3.png')">Details</button></label>
+
+                <h3>Non-Technical (Max 2)</h3>
+                <label><input type="checkbox" class="nontech" value="Neuro Knockout"> Neuro Knockout <button type="button" onclick="showPoster('event_nt_1.png')">Details</button></label>
+                <label><input type="checkbox" class="nontech" value="Triple Trouble"> Triple Trouble <button type="button" onclick="showPoster('event_nt_2.png')">Details</button></label>
+                <label><input type="checkbox" class="nontech" value="LOLympics"> LOLympics'26 <button type="button" onclick="showPoster('event_nt_3.png')">Details</button></label>
+
+                <h3>Payment Screenshot</h3>
+                <input type="file" id="screenshot" accept="image/*" required>
+                <img id="preview" style="width:100%; display:none; border-radius:10px; margin:10px 0;">
+
+                <button type="button" id="payBtn">Pay ₹250</button>
+
+                <div id="paymentArea" style="display:none; text-align:center;">
+                    <div id="qrBox" style="margin: 15px 0;">
+                        <p><b>Scan & Pay ₹250</b></p>
+                        <img id="upiQR" style="width:200px; height:200px; border:5px solid white; border-radius:10px;">
+                    </div>
+                    <input type="text" id="utrInput" placeholder="Enter 12-digit UTR/Txn ID">
+                    <button type="button" id="verifyBtn" style="background: #f59e0b; color: #000;">Verify Payment</button>
+                </div>
+
+                <button type="button" id="submitBtn" disabled>Submit Registration</button>
+                <div id="loader">Processing... Please wait</div>
+            </form>
+        </div>
+    </div>
+
+    <div id="posterModal" class="modal" onclick="closePoster(event)">
+        <span class="close">×</span>
+        <img id="posterImg">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
